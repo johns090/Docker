@@ -2,8 +2,8 @@ set static ip
 dnf update
 dnf upgrade
 sudo passwd
-useradd dockerhubname
-passwd dockerhubname
+useradd johns0900
+passwd johns0900
 dnf install open-vm-tools
 dnf install openssh-server
 sytemctl enable sshd
@@ -18,7 +18,22 @@ sudo systemctl enable --now docker
 sudo dnf config-manager --set-enabled docker-ce-nightly
 sudo systemctl start docker
 sudo systemctl status docker
-usermod -aG docker "dockerhubname"
+usermod -aG docker johns0900
 id -nG
 docker run hello-world
+
+-- to resolve the run hello-world issue
+dnf install -y grubby
+grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
+reboot
+
+
+
+sudo systemctl start docker
+sudo systemctl status docker
+
+
+
+
+
 
