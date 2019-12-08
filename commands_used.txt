@@ -1,0 +1,253 @@
+
+user asmith is created, will be used for Docker 
+
+provide static IP address, 10.64.51.25
+
+instlled openssh
+
+
+-- Debian: can do retrieving + installation + start, better than other Linux user
+
+apt-get install openssh-server
+
+
+-- install Docker
+
+apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+
+curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+
+apt update
+
+apt-cache policy docker-ce
+
+
+-- ce: Community Edition
+apt install docker-ce
+
+
+user "docker" and group "docker" will be created automatically
+
+
+systemctl status docker
+
+-- docs:
+https://docs.docker.com
+
+cd /etc
+vi group -- you can find user "docker" is created during the docker installation process.
+
+vi passwd  --- docker has no password
+
+sudo usermod -aG docker asmith   --- assign asmith to docker group
+
+id -nG  -- now the group is "root"
+
+sudo usermod -aG docker ${USER}    --- current ${USER} is root
+
+id -nG 
+
+exit
+
+su -
+
+id -nG
+
+cd /etc
+vi group -- you can remvoe ",root" from docker group, because root is already super user
+
+
+
+--Check docker info
+
+docker
+docker -v
+docker -info
+
+
+--- wordpress can be setup using a container, instead of setting up manually
+
+docker run hello-world
+
+docker run -it ubuntu bash
+
+
+id ---
+
+apt update  --- now it's updating ubuntu
+apt upgrade ---
+
+apt-get install apache2   --- to install web server
+
+exit   --
+
+docker ps   --- nothing
+
+
+docker ps -a      ----- -- user can see two containers are stopped
+
+
+docker start 03bff23d702a
+docker start 8cfd2eb5076b
+
+
+docker ps -a
+-- you can see ubuntu bash is running
+-- you can see hello-world stopped
+
+
+docker stop 03bff23d702a
+
+docker ps -a
+
+docker run -it ubuntu
+-- now you are connected to ubuntu container
+
+
+exit    -- exit from ubuntu bash container
+
+
+docker search ubuntu
+
+
+docker pull 1and1internet/ubuntu-16-nginx-php-phpmyadmin-mysql-5 
+
+--- nginx  --- looks like a standard
+
+
+docker ps -a
+
+docker images
+
+docker search windows
+
+docker search fedora
+
+
+docker run -it 1and1internet/ubuntu-16-nginx-php-phpmyadmin-mysql-5
+
+
+docker pull fedora
+docker images
+docker run -it fedora
+yum install httpd   ------check fedora container is running, fedora use "yum" for download
+
+
+--- in different putty
+docker stop 01352c98b1b9
+
+docker rm pedantic_wilbur
+
+
+docker run -it upbeat_goodall      --- start a new instance in a new container, with new ID
+docker start upbeat_goodall      ----
+docker attach upbeat_goodall     ---- to connect to a running container
+
+
+
+-- under running ubuntu container
+apt update
+apt upgrade
+
+apt install nodejs
+
+node -v
+
+docker ps
+docker ps -a
+
+
+--- to create one account and one private repository for free
+https://hub.docker.com/
+--- browse the available containers, some are free and some are not, can build one'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
