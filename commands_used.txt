@@ -165,6 +165,60 @@ https://hub.docker.com/
 
 
 
+docker images
+
+docker commit -m "added Node.js" -a "ubuntu-nodejs" 43a519923be3 johns0900/ubuntu-nodejs
+
+docker login -u johns0900
+---  Your password will be stored unencrypted in /root/.docker/config.json.
+
+docker push johns0900/ubuntu-nodejs
+
+
+-------------------
+New host 10.64.52.25  , debian25b 
+folder debian25b , disk 60G, 4G ram, bridge, point dvd
+
+domain: debian25b.com
+
+-- Debian
+-- Fedora: fedora25, fedora25b, fed25.com, fed25b.com
+	ip: 10.64.53.25, 10.64.54.25
+
+
+
+---- create sworm, need multiple hosts to be created
+
+
+
+on 2nd Debian box:
+
+su johns0900
+
+docker login -u johns0900
+
+docker pull johns0900/ubuntu-nodejs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
