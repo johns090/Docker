@@ -182,7 +182,8 @@ folder debian25b , disk 60G, 4G ram, bridge, point dvd
 domain: debian25b.com
 
 -- Debian
--- Fedora: fedora25, fedora25b, fed25.com, fed25b.com
+-- Fedora: fedora25, fedora25b, 
+-- DNS: fed25.com, fed25b.com
 	ip: 10.64.53.25, 10.64.54.25
 
 

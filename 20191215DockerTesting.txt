@@ -1,0 +1,120 @@
+
+https://bytefreaks.net/gnulinux/fedora-25-install-start-enable-ssh-server
+
+
+docker build --tag=friendlyhello .
+
+
+
+dns:
+
+cd /etc/docker
+vi daemon.json
+
+
+docker tag friendlyhello johns0900/friendlyhello
+
+docker push johns0900/friendlyhello
+
+-- from the second Fedora host
+docker login
+
+docker run -p 4000:80 johns0900/friendlyhello
+
+docker container ls
+
+docker container stop  6724c9b29fac
+
+-- docker container vs image ??
+
+docker swarm init
+
+docker swarm leave --force
+
+
+
+docker stack deploy -c docker-compose.yml friendlyhello
+
+
+docker service  ls
+
+docker service rm lu0vlmml48p8
+
+docker service ps friendlyhello_web
+
+docker stack rm friendlyhello
+
+
+docker swarm leave --force
+
+
+
+docker swarm join --token SWMTKN-1-2rx9kfcwsz4ifd6mzr53t530mpk1ju29o5ukli6xxw84mbs3le-5arbembg7hg37snofox6gmd9q 10.64.53.25:2377
+
+
+
+firewall-cmd --zone=public --permanent --add-port=2377/tcp 
+firewall-cmd --zone=public --permanent --add-port=7946/tcp 
+firewall-cmd --zone=public --permanent --add-port=7946/udp 
+firewall-cmd --zone=public --permanent --add-port=4789/udp 
+
+
+docker info
+
+docker node ls 
+
+
+
+-- apt-get install firewalld
+
+
+
+docker node ls 
+
+
+
+
+docker ps
+docker stop containerid
+
+cd ex3
+docker stack deploy -c docker-compose.yml friendlyhello
+
+
+docker service  ls
+docker stack ps friendlyhello  --- show all instances
+docker ps --- only show the running instances on the the host where the container is running
+
+
+
+
+
+--ex4
+docker-machine ls  ??
+-- use new docker-compose.yml to include visulizer
+
+docker stack deploy -c docker-compose.yml friendlyhello
+
+
+cd /
+mkdir data
+-- use new docker-compose.yml to include redis
+
+docker stack deploy -c docker-compose.yml friendlyhello
+
+
+https://docs.docker.com/v17.09/machine/install-machine/    --- docker-machine command is mainly used for Window
+
+----
+
+docker build -t my_mongodb .
+
+
+
+
+
+
+
+
+
+
